@@ -10,14 +10,13 @@ const filePathCopy = path.join(dirname, 'files-copy');
 
 const copy = async () => {
     // Write your code here
-    console.log(path.join(dirname, 'files'))
     fs.mkdir(filePathCopy, (err) => {
-       if (err) console.log('FS operation failed')
+       if (err) throw Error('FS operation failed');
        else {
         fs.readdir(path.join(filePath), (error, files)=> {
-            if (error) console.error('FS operation failed')
+            if (error) throw Error('FS operation failed');
             files.map(file => fs.copyFile(path.join(filePath, file), path.join(filePathCopy, file),(error) => {
-                if (error) console.error('FS operation failed')
+                if (error) throw Error('FS operation failed');
                 else {
                     console.log('Success');
                  } 

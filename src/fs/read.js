@@ -12,9 +12,8 @@ const read = async () => {
 
     fs.readFile(filePath, 'utf-8', (error, data) => {
        if  (error) {
-        console.error('FS operation failed');
-        // throw new Error('FS operation failed')
-    } else console.log(data)
+        throw Error('FS operation failed');
+    } else console.log(data);
 })
 
     

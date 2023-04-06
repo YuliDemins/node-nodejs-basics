@@ -11,14 +11,12 @@ const create = async () => {
     // Write your code here 
 
     fs.readdir(filePath, (error, files) => {
-        if (error) {
-            console.error('FS operation failed')
-        }
+        if (error) throw Error('FS operation failed');
 
-        if (files.includes('fresh.txt')) console.error('FS operation failed');
+        if (files.includes('fresh.txt')) throw Error('FS operation failed');
         else {
             fs.writeFile(path.join(filePath, 'fresh.txt'), 'I am fresh and young', (error) => {
-                if (error) console.error('FS operation failed');
+                if (error) throw Error('FS operation failed');
             })
         }
     });
