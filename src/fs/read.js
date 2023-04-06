@@ -13,7 +13,7 @@ const read = async () => {
     fs.readFile(filePath, 'utf-8', (error, data) => {
        if  (error) {
         throw Error('FS operation failed');
-    } else console.log(data);
+    } else process.stdout.write(data);
 })
 
     
